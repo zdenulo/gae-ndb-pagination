@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Cursor pagination</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    </thead>
+    <tbody>
+    {% for obj in objects %}
+        <tr>
+            <td>{{ obj.number }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    <tr>
+        <p>
+            {% if prev %}
+                <a href="/cursor_pagination?next_cursor={{ next_cursor }}&prev_cursor={{ prev_cursor }}&direction=bwd">Previous</a>
+            {% endif %}
+
+            {% if next %}
+                <a href="/cursor_pagination?next_cursor={{ next_cursor }}&prev_cursor={{ prev_cursor }}&direction=fwd">Forward</a>
+            {% endif %}
+        </p>
+    </tr>
+    </tfoot>
+</table>
+
+</body>
+</html>

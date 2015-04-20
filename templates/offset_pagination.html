@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Offset Pagination</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+    </tr>
+    </thead>
+    <tbody>
+    {% for obj in objects %}
+        <tr>
+            <td>{{ obj.number }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    <tr>
+        <p>
+            {% if prev %}
+                <a href="/offset_pagination?offset={{ prev_offset }}">Previous</a>
+            {% endif %}
+            {% if next %}
+                <a href="/offset_pagination?offset={{ next_offset }}">Next</a>
+            {% endif %}
+        </p>
+    </tr>
+    </tfoot>
+
+</table>
+
+</body>
+</html>
