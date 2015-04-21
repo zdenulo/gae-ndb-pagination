@@ -20,11 +20,11 @@
     <tr>
         <p>
             {% if prev %}
-                <a href="/cursor_pagination?next_cursor={{ next_cursor }}&prev_cursor={{ prev_cursor }}&direction=bwd">Previous</a>
+                <a href="/cursor_pagination?prev_cursor={{ prev_cursor }}">Previous</a>
             {% endif %}
 
             {% if next %}
-                <a href="/cursor_pagination?next_cursor={{ next_cursor }}&prev_cursor={{ prev_cursor }}&direction=fwd">Forward</a>
+                <a href="/cursor_pagination?next_cursor={{ next_cursor }}">Forward</a>
             {% endif %}
         </p>
     </tr>

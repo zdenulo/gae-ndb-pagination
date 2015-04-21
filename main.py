@@ -29,10 +29,9 @@ class CursorPaginationHandler(webapp2.RequestHandler):
     """Display objects with cursor pagination"""
 
     def get(self):
-        direction = self.request.get('direction', '')
         prev_cursor = self.request.get('prev_cursor', '')
         next_cursor = self.request.get('next_cursor', '')
-        res = TestModelPag.cursor_pagination(prev_cursor, next_cursor, direction)
+        res = TestModelPag.cursor_pagination(prev_cursor, next_cursor)
         template = JINJA_ENVIRONMENT.get_template('templates/cursor_pagination.html')
         self.response.write(template.render(res))
 
