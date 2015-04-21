@@ -11,9 +11,8 @@ class TestModelPag(ndb.Model):
     @classmethod
     def cursor_pagination(cls, prev_cursor_str, next_cursor_str):
         if not prev_cursor_str and not next_cursor_str:
-            cursor = Cursor()
-            objects, next_cursor, more = cls.query().order(cls.number).fetch_page(ITEMS, start_cursor=cursor)
-            prev_cursor_str = cursor.urlsafe()
+            objects, next_cursor, more = cls.query().order(cls.number).fetch_page(ITEMS)
+            prev_cursor_str = ''
             next_cursor_str = next_cursor.urlsafe()
             next_ = True if more else False
             prev = False
