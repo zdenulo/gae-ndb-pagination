@@ -13,7 +13,10 @@ class TestModelPag(ndb.Model):
         if not prev_cursor_str and not next_cursor_str:
             objects, next_cursor, more = cls.query().order(cls.number).fetch_page(ITEMS)
             prev_cursor_str = ''
-            next_cursor_str = next_cursor.urlsafe()
+            if next_cursor:
+                next_cursor_str = next_cursor.urlsafe()
+            else:
+                next_cursor_str = ''
             next_ = True if more else False
             prev = False
         elif next_cursor_str:
